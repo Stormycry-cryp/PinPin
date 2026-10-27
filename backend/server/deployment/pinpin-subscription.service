@@ -1,0 +1,28 @@
+[Unit]
+Description=PinPin commercial subscription gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Provision a dedicated unprivileged account before installing this template.
+User=pinpin-subscription
+Group=pinpin-subscription
+WorkingDirectory=/opt/pinpin-commercial/server
+EnvironmentFile=/etc/pinpin-commercial/gateway.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStartPre=/opt/pinpin-commercial/venv/bin/python -B /opt/pinpin-commercial/server/run_subscription_gateway.py --check-config
+ExecStart=/opt/pinpin-commercial/venv/bin/python -B /opt/pinpin-commercial/server/run_subscription_gateway.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+StateDirectory=pinpin-commercial
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/pinpin-commercial
+
+[Install]
+WantedBy=multi-user.target

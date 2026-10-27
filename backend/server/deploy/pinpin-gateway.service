@@ -1,0 +1,36 @@
+[Unit]
+Description=PinPin fixed model gateway
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=pinpin
+Group=pinpin
+WorkingDirectory=/opt/pinpin/server
+EnvironmentFile=/etc/pinpin/gateway.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/pinpin/server/.venv/bin/python /opt/pinpin/server/gateway.py
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryMax=384M
+TasksMax=32
+LimitNOFILE=1024
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- PinPin mark, neumorphic, transparent background: the big pin is a matte light-gray slab of
+       the app's surface material (convex face, hairline edge, soft shade down-right), its hole
+       shows the page through; the small pin is a convex graphite pebble. No pure black or white.
+       Geometry: brand/README.md -->
+  <defs>
+    <linearGradient id="pinFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F4F6"/>
+      <stop offset="1" stop-color="#CFCFD4"/>
+    </linearGradient>
+    <linearGradient id="pinGraphite" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#626267"/>
+      <stop offset="1" stop-color="#26262A"/>
+    </linearGradient>
+    <radialGradient id="pebbleSheen" cx="0.36" cy="0.26" r="0.55">
+      <stop offset="0" stop-color="#F5F5F7" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#F5F5F7" stop-opacity="0"/>
+    </radialGradient>
+    <!-- On an unknown page only the shade side is drawn; a light glow would vanish on white. -->
+    <filter id="shade" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="7" result="blur"/>
+      <feOffset in="blur" dx="7" dy="9" result="down"/>
+      <feFlood flood-color="#1C1C1E" flood-opacity="0.22"/>
+      <feComposite in2="down" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 12-unit gap around the small pin: its outline grown by 12 (19.355 in its 0.62x local space). -->
+    <mask id="pinGap" maskUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <rect x="-200" y="-200" width="1000" height="1000" fill="#FFFFFF"/>
+      <path transform="translate(380 395) rotate(-14) scale(0.62) translate(0 -196)" fill="#000000"
+        d="M -105.562 55.699 A 119.355 119.355 0 1 1 105.562 55.699 L 31.269 196.499 A 35.355 35.355 0 0 1 -31.269 196.499 Z"/>
+    </mask>
+  </defs>
+  <g filter="url(#shade)">
+    <g transform="translate(256 260) scale(1.36) translate(-268.32 -248.64)">
+      <g mask="url(#pinGap)">
+        <path transform="translate(190 395) rotate(10) translate(0 -196)" fill="url(#pinFace)" fill-rule="evenodd"
+          stroke="#1C1C1E" stroke-opacity="0.12" stroke-width="1.5"
+          d="M -88.443 46.667 A 100 100 0 1 1 88.443 46.667 L 14.151 187.467 A 16 16 0 0 1 -14.151 187.467 Z M 0 -40 A 40 40 0 1 0 0 40 A 40 40 0 1 0 0 -40 Z"/>
+      </g>
+    </g>
+  </g>
+  <g filter="url(#shade)">
+    <g transform="translate(256 260) scale(1.36) translate(-268.32 -248.64)">
+      <path transform="translate(380 395) rotate(-14) scale(0.62) translate(0 -196)" fill="url(#pinGraphite)"
+        d="M -88.443 46.667 A 100 100 0 1 1 88.443 46.667 L 14.151 187.467 A 16 16 0 0 1 -14.151 187.467 Z"/>
+      <path transform="translate(380 395) rotate(-14) scale(0.62) translate(0 -196)" fill="url(#pebbleSheen)"
+        d="M -88.443 46.667 A 100 100 0 1 1 88.443 46.667 L 14.151 187.467 A 16 16 0 0 1 -14.151 187.467 Z"/>
+    </g>
+  </g>
+</svg>

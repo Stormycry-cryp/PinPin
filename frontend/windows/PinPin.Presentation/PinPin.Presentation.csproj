@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>PinPin.Presentation</AssemblyName>
+    <RootNamespace>PinPin.Presentation</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(PinPinBackendRoot)/platforms/windows/PinPin.Core/PinPin.Core.csproj" />
+    <Compile Remove="Checks/**/*.cs" />
+    <Resource Include="../../brand/app-icon.png" Link="Assets/app-icon.png" Condition="Exists('../../brand/app-icon.png')" />
+  </ItemGroup>
+  <Target Name="RequireBackendRoot" BeforeTargets="ResolveProjectReferences">
+    <Error Condition="'$(PinPinBackendRoot)' == ''" Text="Build from the combined repository, or pass -p:PinPinBackendRoot=/absolute/path/to/PinPin/backend." />
+  </Target>
+</Project>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- PinPin macOS app icon, neumorphic. One matte light-gray tile lit from the top left; the big
+       pin is raised out of the same material (light cast up-left, soft shade down-right) and its
+       hole is pressed in; the small pin is a convex graphite pebble on top. No pure black or white.
+       824 rounded square (radius 185.4) on the 1024 grid. Geometry: brand/README.md -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEEEF1"/>
+      <stop offset="1" stop-color="#DCDCE0"/>
+    </linearGradient>
+    <!-- Bevel of the tile: light along the top-left edge, shade along the bottom-right. -->
+    <linearGradient id="tileRim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FAFAFB" stop-opacity="0.95"/>
+      <stop offset="0.48" stop-color="#FAFAFB" stop-opacity="0"/>
+      <stop offset="0.52" stop-color="#8E8E93" stop-opacity="0"/>
+      <stop offset="1" stop-color="#8E8E93" stop-opacity="0.45"/>
+    </linearGradient>
+    <!-- Convex face of the big pin, same material as the tile. -->
+    <linearGradient id="pinFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F4F6"/>
+      <stop offset="1" stop-color="#CFCFD4"/>
+    </linearGradient>
+    <linearGradient id="pinGraphite" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#626267"/>
+      <stop offset="1" stop-color="#26262A"/>
+    </linearGradient>
+    <radialGradient id="pebbleSheen" cx="0.36" cy="0.26" r="0.55">
+      <stop offset="0" stop-color="#F5F5F7" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#F5F5F7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feOffset in="blur" dy="8" result="offset"/>
+      <feFlood flood-color="#1C1C1E" flood-opacity="0.26"/>
+      <feComposite in2="offset" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Raised: shade cast down-right, light cast up-left. Inside the hole the same two shadows
+         fall on the tile, so the hole reads pressed in. -->
+    <filter id="raised" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur"/>
+      <feOffset in="blur" dx="20" dy="22" result="down"/>
+      <feFlood flood-color="#8A8A90" flood-opacity="0.9"/>
+      <feComposite in2="down" operator="in" result="shade"/>
+      <feOffset in="blur" dx="-14" dy="-14" result="up"/>
+      <feFlood flood-color="#FCFCFD" flood-opacity="1"/>
+      <feComposite in2="up" operator="in" result="light"/>
+      <feMerge>
+        <feMergeNode in="shade"/>
+        <feMergeNode in="light"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="raisedPebble" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="11" result="blur"/>
+      <feOffset in="blur" dx="13" dy="15" result="down"/>
+      <feFlood flood-color="#77777D" flood-opacity="0.75"/>
+      <feComposite in2="down" operator="in" result="shade"/>
+      <feOffset in="blur" dx="-10" dy="-10" result="up"/>
+      <feFlood flood-color="#FCFCFD" flood-opacity="0.9"/>
+      <feComposite in2="up" operator="in" result="light"/>
+      <feMerge>
+        <feMergeNode in="shade"/>
+        <feMergeNode in="light"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- 12-unit gap around the small pin: its outline grown by 12 (19.355 in its 0.62x local space). -->
+    <mask id="pinGap" maskUnits="userSpaceOnUse" x="-200" y="-200" width="1000" height="1000">
+      <rect x="-200" y="-200" width="1000" height="1000" fill="#FFFFFF"/>
+      <path transform="translate(380 395) rotate(-14) scale(0.62) translate(0 -196)" fill="#000000"
+        d="M -105.562 55.699 A 119.355 119.355 0 1 1 105.562 55.699 L 31.269 196.499 A 35.355 35.355 0 0 1 -31.269 196.499 Z"/>
+    </mask>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185.4" ry="185.4" fill="url(#tile)" filter="url(#tileShadow)"/>
+  <rect x="102.5" y="102.5" width="819" height="819" rx="183" ry="183" fill="none" stroke="url(#tileRim)" stroke-width="5"/>
+  <rect x="100.5" y="100.5" width="823" height="823" rx="185" ry="185" fill="none" stroke="#1C1C1E" stroke-opacity="0.08" stroke-width="1"/>
+  <g filter="url(#raised)">
+    <g transform="translate(512 520) scale(1.78) translate(-268.32 -248.64)">
+      <g mask="url(#pinGap)">
+        <path transform="translate(190 395) rotate(10) translate(0 -196)" fill="url(#pinFace)" fill-rule="evenodd"
+          d="M -88.443 46.667 A 100 100 0 1 1 88.443 46.667 L 14.151 187.467 A 16 16 0 0 1 -14.151 187.467 Z M 0 -40 A 40 40 0 1 0 0 40 A 40 40 0 1 0 0 -40 Z"/>
+      </g>
+    </g>
+  </g>
+  <g filter="url(#raisedPebble)">
+    <g transform="translate(512 520) scale(1.78) translate(-268.32 -248.64)">
+      <path transform="translate(380 395) rotate(-14) scale(0.62) translate(0 -196)" fill="url(#pinGraphite)"
+        d="M -88.443 46.667 A 100 100 0 1 1 88.443 46.667 L 14.151 187.467 A 16 16 0 0 1 -14.151 187.467 Z"/>
+      <path transform="translate(380 395) rotate(-14) scale(0.62) translate(0 -196)" fill="url(#pebbleSheen)"
+        d="M -88.443 46.667 A 100 100 0 1 1 88.443 46.667 L 14.151 187.467 A 16 16 0 0 1 -14.151 187.467 Z"/>
+    </g>
+  </g>
+</svg>
