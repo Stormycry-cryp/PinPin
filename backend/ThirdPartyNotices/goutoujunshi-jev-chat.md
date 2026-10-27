@@ -1,0 +1,1 @@
+七类 reply_strategy criteria 改编自 https://github.com/shengjidaguai-china/goutoujunshi-jev-chat 的 integrations/jev_mac/jev.py，固定提交 12ee1d6582a9270bd44b71a519d21f387542e8e0，Copyright (c) 2026 powerycy，MIT 原文见同目录 goutoujunshi-jev-chat-MIT.txt。仅移植策略 criteria，未复制 vendor 采集/OCR/填入代码。

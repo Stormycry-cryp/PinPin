@@ -1,0 +1,10 @@
+backend-*.txt
+user-inputs.md
+product-decisions.md
+review-feedback.md
+task.md
+user-plan.png
+video-reference.png
+.build/
+.module-cache/
+.DS_Store

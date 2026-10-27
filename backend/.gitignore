@@ -1,0 +1,10 @@
+Filee/
+.build/
+dist/
+work/
+research/
+*.private.*
+.DS_Store
+server/.venv/
+server/__pycache__/
+server/tests/__pycache__/

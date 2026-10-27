@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>PinPin</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon Condition="Exists('PinPin.ico')">PinPin.ico</ApplicationIcon>
+    <PinPinFrontendRoot Condition="'$(PinPinFrontendRoot)'==''">$(MSBuildThisFileDirectory)..\..\..\..\frontend</PinPinFrontendRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PinPin.Core/PinPin.Core.csproj" />
+    <ProjectReference Include="../PinPin.Native/PinPin.Native.csproj" />
+    <ProjectReference Include="$(PinPinFrontendRoot)/windows/PinPin.Presentation/PinPin.Presentation.csproj" />
+    <Content Include="../../../ThirdPartyNotices/*" Link="ThirdPartyNotices/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../使用说明.txt" Link="使用说明.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+<!-- Adapted from PowerToys App.manifest lines 53-57 at 115665ec3240a0c94dea3f0bfaaa6c52dcf4d019.
+     Copyright (c) Microsoft Corporation. MIT: ../licenses/PowerToys-MIT.txt.
+     Fragment only: merge into the actual executable host's manifest before process startup. -->
+<application xmlns="urn:schemas-microsoft-com:asm.v3">
+  <windowsSettings>
+    <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/PM</dpiAware>
+    <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2</dpiAwareness>
+  </windowsSettings>
+</application>

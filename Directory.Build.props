@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <PinPinBackendRoot Condition="'$(PinPinBackendRoot)' == ''">$(MSBuildThisFileDirectory)backend</PinPinBackendRoot>
+    <PinPinFrontendRoot Condition="'$(PinPinFrontendRoot)' == ''">$(MSBuildThisFileDirectory)frontend</PinPinFrontendRoot>
+    <!-- A fixed, project-separated output tree keeps generated Windows files out of sources. -->
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <ArtifactsPath>$(MSBuildThisFileDirectory).build/windows/artifacts</ArtifactsPath>
+  </PropertyGroup>
+</Project>

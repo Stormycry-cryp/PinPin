@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PinPin.Core/PinPin.Core.csproj" />
+    <!-- Preserve the already validated PowerToys-derived source and its MIT attribution. -->
+    <Compile Include="../PowerToysPixelSampler.cs" Link="ColorSampling/PowerToysPixelSampler.cs" />
+  </ItemGroup>
+</Project>
